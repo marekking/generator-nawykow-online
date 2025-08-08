@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -64,9 +64,7 @@
 </head>
 <body class="antialiased">
 
-
     <div class="container mx-auto px-4 py-8 md:py-16">
-
 
         <header class="text-center mb-16">
             <h1 class="text-4xl md:text-6xl font-black mb-4">Jak Zbudować Lepsze Życie?</h1>
@@ -77,7 +75,6 @@
                 <p class="text-sm text-gray-500">Lepsze wyniki po roku codziennej poprawy o 1%</p>
             </div>
         </header>
-
 
         <section id="petla-nawyku" class="mb-20">
             <h2 class="text-3xl font-bold text-center mb-2">Fundament Zmiany</h2>
@@ -106,13 +103,11 @@
             </div>
         </section>
 
-
         <section id="zastosowanie" class="mb-16">
             <h2 class="text-3xl font-bold text-center mb-2">Zastosowanie w Praktyce: Twoje Cele</h2>
             <p class="text-xl text-center text-gray-600 mb-12">Zobaczmy, jak te zasady przekładają się na konkretne cele, które chcesz osiągnąć.</p>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
 
                 <div class="bg-white p-6 rounded-lg shadow-xl border-t-4 border-[#FF6B6B]">
                     <h3 class="text-2xl font-bold mb-4">🎯 Redukcja Prokrastynacji</h3>
@@ -126,7 +121,6 @@
                     </div>
                 </div>
 
-
                 <div class="bg-white p-6 rounded-lg shadow-xl border-t-4 border-[#FFD166]">
                     <h3 class="text-2xl font-bold mb-4">📅 Lepsza Organizacja Czasu</h3>
                     <p class="mb-6 text-gray-700">Skuteczność różnych technik organizacji zależy od osoby, ale wszystkie opierają się na jasności i konsekwencji. Planowanie z wyprzedzeniem daje największe poczucie kontroli.</p>
@@ -139,7 +133,6 @@
                     </div>
                 </div>
 
-
                 <div class="bg-white p-6 rounded-lg shadow-xl border-t-4 border-[#06D6A0]">
                     <h3 class="text-2xl font-bold mb-4">🧘 Lepsze Well-being</h3>
                     <p class="mb-6 text-gray-700">Dobrostan to harmonijna równowaga między kluczowymi obszarami życia. Dbanie o każdy z nich jest inwestycją w ogólną energię i satysfakcję.</p>
@@ -151,7 +144,6 @@
                          <p class="text-gray-700">Chcesz jeść zdrowiej? Trzymaj owoce na widoku. Chcesz więcej ćwiczyć? Połóż strój sportowy obok łóżka. Uczyń dobre nawyki **oczywistymi**.</p>
                     </div>
                 </div>
-
 
                 <div class="bg-white p-6 rounded-lg shadow-xl border-t-4 border-[#118AB2]">
                     <h3 class="text-2xl font-bold mb-4">⚖️ Lepszy Work-Life Balance</h3>
@@ -177,7 +169,6 @@
             </div>
         </section>
 
-
         <section id="generator-nawykow" class="mb-16">
             <h2 class="text-3xl font-bold text-center mb-4">✨ Generator Planu Nawyków ✨</h2>
             <p class="text-xl text-center text-gray-600 mb-8">Wpisz nawyk (np. "częściej ćwiczyć" lub "mniej oglądać Netflixa"), a ja stworzę dla Ciebie plan w oparciu o Atomowe Nawyki.</p>
@@ -193,8 +184,6 @@
                 </div>
             </div>
         </section>
-
-
 
 
         <section id="prawa" class="mb-16">
@@ -234,9 +223,7 @@
             <p class="text-gray-500 mt-2">Infografika oparta na koncepcjach z "Atomowych nawyków" Jamesa Cleara.</p>
         </footer>
 
-
     </div>
-
 
     <script>
         const energeticPlayful = {
@@ -248,12 +235,10 @@
             lightGray: '#F8F9FA'
         };
 
-
         function wrapLabels(label, maxWidth) {
             const words = label.split(' ');
             let lines = [];
             let currentLine = '';
-
 
             words.forEach(word => {
                 if ((currentLine + word).length > maxWidth) {
@@ -265,7 +250,6 @@
             lines.push(currentLine.trim());
             return lines;
         }
-
 
         const tooltipTitleCallback = (tooltipItems) => {
             const item = tooltipItems[0];
@@ -311,7 +295,6 @@
             }
         };
 
-
         const procrastinationCtx = document.getElementById('procrastinationChart').getContext('2d');
         new Chart(procrastinationCtx, {
             type: 'doughnut',
@@ -335,7 +318,6 @@
                 scales: { y: { display: false }, x: { display: false } }
             }
         });
-
 
         const organizationCtx = document.getElementById('organizationChart').getContext('2d');
         new Chart(organizationCtx, {
@@ -380,7 +362,6 @@
             }
         });
 
-
         const wellbeingCtx = document.getElementById('wellbeingChart').getContext('2d');
         new Chart(wellbeingCtx, {
             type: 'radar',
@@ -419,12 +400,10 @@
             }
         });
 
-
         const generatePlan = async () => {
             const habitInput = document.getElementById('habitInput').value;
             const resultContainer = document.getElementById('resultContainer');
             const resultContent = document.getElementById('resultContent');
-
 
             if (!habitInput) {
                 resultContent.innerHTML = 'Proszę wpisać nawyk do analizy.';
@@ -432,24 +411,20 @@
                 return;
             }
 
-
             resultContent.innerHTML = '<div class="text-center"><span class="animate-pulse">Generuję plan...</span></div>';
-
-
+            
             const prompt = `Jesteś ekspertem od nawyków, inspirowanym książką "Atomowe Nawyki".
             Na podstawie podanego nawyku, stwórz krótki, konkretny plan działania, stosując cztery prawa zmiany zachowania.
-            Sformatuj odpowiedź jako czysty tekst. Użyj numerowanych nagłówków dla każdego z czterech praw. Pod każdym nagłówkiem umieść wskazówki jako listę punktowaną za pomocą gwiazdki (*). Oddziel każdy nagłówek od następnego pustą linią, a każdą listę od nagłówka również.
-
+            Sformatuj odpowiedź jako czysty tekst. Użyj numerowanych nagłówków dla każdego z czterech praw. Pod każdym nagłówkiem umieść wskazówki jako listę punktowaną za pomocą myślnika (-). Oddziel każdy nagłówek od następnego pustą linią.
 
             Przykład formatowania dla nawyku "pić więcej wody":
             1. Uczyń to oczywistym
-            * Trzymaj butelkę wody zawsze przy sobie.
-            * Postaw szklankę wody obok łóżka.
-
+            - Trzymaj butelkę wody zawsze przy sobie.
+            - Postaw szklankę wody obok łóżka.
 
             2. Uczyń to atrakcyjnym
-            * Dodaj do wody ulubione owoce lub zioła, żeby była smaczniejsza.
-            * Kup butelkę, która podoba Ci się wizualnie.
+            - Dodaj do wody ulubione owoce lub zioła, żeby była smaczniejsza.
+            - Kup butelkę, która podoba Ci się wizualnie.
             
             Bez dodatkowych wstępów i wstępnych tekstów, po prostu gotowy tekst do formatowania.
             
@@ -458,14 +433,11 @@
             let chatHistory = [];
             chatHistory.push({ role: "user", parts: [{ text: prompt }] });
             const payload = { contents: chatHistory };
-            const apiKey = ''; // Leave this as-is; the runtime will provide it
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
+            const apiUrl = `/api/proxy`;
 
             let retries = 0;
             const maxRetries = 5;
             const delay = 1000;
-
 
             const fetchData = async () => {
                 try {
@@ -475,7 +447,6 @@
                         body: JSON.stringify(payload)
                     });
 
-
                     if (response.status === 429 && retries < maxRetries) {
                         retries++;
                         const retryDelay = delay * Math.pow(2, retries - 1);
@@ -483,14 +454,12 @@
                         return fetchData();
                     }
 
-
                     if (!response.ok) {
                         console.error('Błąd HTTP! Status:', response.status);
                         const errorBody = await response.text();
                         console.error('Treść błędu:', errorBody);
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
-
 
                     const result = await response.json();
                     
@@ -509,30 +478,32 @@
                 }
             };
 
-
             const formatPlanToHtml = (planText) => {
                 let htmlOutput = '';
                 const lines = planText.split('\n');
-
-
+                
                 let currentList = false;
                 lines.forEach(line => {
-                    if (line.trim().startsWith('*')) {
-                        if (!currentList) {
-                            htmlOutput += '<ul>';
-                            currentList = true;
-                        }
-                        htmlOutput += `<li class="ml-4 mb-1 list-disc">${line.trim().substring(1).trim()}</li>`;
-                    } else {
+                    const trimmedLine = line.trim();
+
+                    if (trimmedLine.match(/^\d+\./)) {
                         if (currentList) {
                             htmlOutput += '</ul>';
                             currentList = false;
                         }
-                        if (line.trim().match(/^\d+\./)) {
-                             htmlOutput += `<h4 class="font-bold text-lg mt-4 mb-2">${line.trim()}</h4>`;
-                        } else if (line.trim() !== '') {
-                            htmlOutput += `<p class="mb-2">${line.trim()}</p>`;
+                        htmlOutput += `<h4 class="font-bold text-lg mt-4 mb-2">${trimmedLine}</h4>`;
+                    } else if (trimmedLine.startsWith('-')) {
+                        if (!currentList) {
+                            htmlOutput += '<ul>';
+                            currentList = true;
                         }
+                        htmlOutput += `<li class="ml-4 list-disc">${trimmedLine.substring(1).trim()}</li>`;
+                    } else if (trimmedLine === '') {
+                        if (currentList) {
+                            htmlOutput += '</ul>';
+                            currentList = false;
+                        }
+                        htmlOutput += '<p></p>';
                     }
                 });
                 if (currentList) {
@@ -541,10 +512,8 @@
                 return htmlOutput;
             };
 
-
             fetchData();
         };
-
 
         document.getElementById('generateButton').addEventListener('click', generatePlan);
     </script>
