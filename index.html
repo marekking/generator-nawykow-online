@@ -1,0 +1,552 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografika: Atomowe Nawyki w Praktyce</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #F8F9FA;
+            color: #073B4C;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #118AB2, #06D6A0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .arrow {
+            position: relative;
+            padding-right: 2rem;
+        }
+        .arrow::after {
+            content: '→';
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #FFD166;
+        }
+         @media (max-width: 767px) {
+            .arrow {
+                padding-right: 0;
+                padding-bottom: 2rem;
+            }
+            .arrow::after {
+                content: '↓';
+                right: 50%;
+                top: auto;
+                bottom: -0.5rem;
+                transform: translateX(50%);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+
+    <div class="container mx-auto px-4 py-8 md:py-16">
+
+
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-black mb-4">Jak Zbudować Lepsze Życie?</h1>
+            <p class="text-xl md:text-2xl font-bold gradient-text">Siła Atomowych Nawyków</p>
+            <div class="mt-8 bg-white rounded-lg shadow-xl p-8 max-w-2xl mx-auto border-t-4 border-[#06D6A0]">
+                <p class="text-lg text-[#073B4C] mb-4">James Clear uczy, że prawdziwa zmiana nie pochodzi z rewolucji, ale z ewolucji. Poprawa o zaledwie **1% każdego dnia** prowadzi do wyników lepszych o prawie **38 razy** w ciągu roku. Ta infografika pokaże Ci, jak zastosować tę zasadę w praktyce.</p>
+                <div class="text-6xl font-black text-[#118AB2]">37.78x</div>
+                <p class="text-sm text-gray-500">Lepsze wyniki po roku codziennej poprawy o 1%</p>
+            </div>
+        </header>
+
+
+        <section id="petla-nawyku" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-2">Fundament Zmiany</h2>
+            <p class="text-xl text-center text-gray-600 mb-12">Każdy nawyk, dobry czy zły, działa w oparciu o tę samą 4-etapową pętlę.</p>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-lg arrow">
+                    <div class="text-4xl mb-2">📢</div>
+                    <h3 class="text-xl font-bold text-[#118AB2]">1. Sygnał</h3>
+                    <p class="text-gray-700 mt-2">Bodziec, który wyzwala nawyk. Może to być czas, miejsce lub emocja.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg arrow">
+                    <div class="text-4xl mb-2">🔥</div>
+                    <h3 class="text-xl font-bold text-[#118AB2]">2. Pragnienie</h3>
+                    <p class="text-gray-700 mt-2">Motywacja do działania. Nie pragniesz nawyku, lecz zmiany stanu, którą on przynosi.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg arrow">
+                    <div class="text-4xl mb-2">🏃‍♂️</div>
+                    <h3 class="text-xl font-bold text-[#118AB2]">3. Reakcja</h3>
+                    <p class="text-gray-700 mt-2">Faktyczne wykonanie nawyku. Myśl lub czynność, którą podejmujesz.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-4xl mb-2">🏆</div>
+                    <h3 class="text-xl font-bold text-[#118AB2]">4. Nagroda</h3>
+                    <p class="text-gray-700 mt-2">Satysfakcja, która wzmacnia pętlę i uczy mózg, że warto to powtórzyć.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="zastosowanie" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-2">Zastosowanie w Praktyce: Twoje Cele</h2>
+            <p class="text-xl text-center text-gray-600 mb-12">Zobaczmy, jak te zasady przekładają się na konkretne cele, które chcesz osiągnąć.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+
+                <div class="bg-white p-6 rounded-lg shadow-xl border-t-4 border-[#FF6B6B]">
+                    <h3 class="text-2xl font-bold mb-4">🎯 Redukcja Prokrastynacji</h3>
+                    <p class="mb-6 text-gray-700">Prokrastynacja to często unikanie dyskomfortu. Zrozumienie jej przyczyn to pierwszy krok do jej pokonania. Najczęstsze powody to lęk, perfekcjonizm i przeciążenie.</p>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="procrastinationChart"></canvas>
+                    </div>
+                    <div class="mt-6 p-4 bg-red-50 rounded-lg text-center">
+                         <h4 class="font-bold text-[#FF6B6B]">Zasada 2 Minut</h4>
+                         <p class="text-gray-700">Zredukuj nawyk do czegoś, co zajmuje mniej niż 2 minuty. "Przeczytaj jedną stronę" zamiast "Czytaj książkę". To pokonuje opór przed rozpoczęciem.</p>
+                    </div>
+                </div>
+
+
+                <div class="bg-white p-6 rounded-lg shadow-xl border-t-4 border-[#FFD166]">
+                    <h3 class="text-2xl font-bold mb-4">📅 Lepsza Organizacja Czasu</h3>
+                    <p class="mb-6 text-gray-700">Skuteczność różnych technik organizacji zależy od osoby, ale wszystkie opierają się na jasności i konsekwencji. Planowanie z wyprzedzeniem daje największe poczucie kontroli.</p>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="organizationChart"></canvas>
+                    </div>
+                     <div class="mt-6 p-4 bg-yellow-50 rounded-lg text-center">
+                         <h4 class="font-bold text-[#FFD166]">Klucz do sukcesu</h4>
+                         <p class="text-gray-700">Niezależnie od metody, najważniejsze jest stworzenie **systemu**, a nie tylko dążenie do celów. Systematyczne działanie przynosi długotrwałe rezultaty.</p>
+                    </div>
+                </div>
+
+
+                <div class="bg-white p-6 rounded-lg shadow-xl border-t-4 border-[#06D6A0]">
+                    <h3 class="text-2xl font-bold mb-4">🧘 Lepsze Well-being</h3>
+                    <p class="mb-6 text-gray-700">Dobrostan to harmonijna równowaga między kluczowymi obszarami życia. Dbanie o każdy z nich jest inwestycją w ogólną energię i satysfakcję.</p>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="wellbeingChart"></canvas>
+                    </div>
+                     <div class="mt-6 p-4 bg-green-50 rounded-lg text-center">
+                         <h4 class="font-bold text-[#06D6A0]">Projektowanie Środowiska</h4>
+                         <p class="text-gray-700">Chcesz jeść zdrowiej? Trzymaj owoce na widoku. Chcesz więcej ćwiczyć? Połóż strój sportowy obok łóżka. Uczyń dobre nawyki **oczywistymi**.</p>
+                    </div>
+                </div>
+
+
+                <div class="bg-white p-6 rounded-lg shadow-xl border-t-4 border-[#118AB2]">
+                    <h3 class="text-2xl font-bold mb-4">⚖️ Lepszy Work-Life Balance</h3>
+                    <p class="mb-6 text-gray-700">Równowaga nie oznacza równego podziału czasu, ale świadomego zarządzania granicami i energią. Kluczem jest stworzenie rytuału, który mentalnie oddziela pracę od życia prywatnego.</p>
+                    <div class="flex flex-col h-80 justify-center items-center">
+                        <div class="w-full flex justify-around items-center">
+                            <div class="text-center">
+                                <div class="text-5xl">🏢</div>
+                                <div class="font-bold mt-2">Czas Pracy</div>
+                            </div>
+                            <div class="text-center p-4 bg-[#118AB2] text-white rounded-full shadow-lg">
+                                <div class="text-3xl">🚪</div>
+                                <div class="font-bold text-xs mt-1">Rytuał<br>Odłączania</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-5xl">🏡</div>
+                                <div class="font-bold mt-2">Czas Prywatny</div>
+                            </div>
+                        </div>
+                         <p class="text-center mt-8 text-gray-600 px-4">Po zakończeniu pracy zamknij laptopa, posprzątaj biurko i powiedz na głos: "Koniec pracy na dziś". Ten prosty akt tworzy silną granicę mentalną.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="generator-nawykow" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-4">✨ Generator Planu Nawyków ✨</h2>
+            <p class="text-xl text-center text-gray-600 mb-8">Wpisz nawyk (np. "częściej ćwiczyć" lub "mniej oglądać Netflixa"), a ja stworzę dla Ciebie plan w oparciu o Atomowe Nawyki.</p>
+            <div class="bg-white p-6 rounded-lg shadow-xl max-w-2xl mx-auto border-t-4 border-[#06D6A0]">
+                <div class="flex flex-col md:flex-row gap-4 mb-4">
+                    <input type="text" id="habitInput" class="flex-grow p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#06D6A0]" placeholder="Np. 'więcej czytać' lub 'przestac pić słodzone napoje'">
+                    <button id="generateButton" class="bg-[#118AB2] text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-[#073B4C] transition duration-300">
+                        Generuj plan ✨
+                    </button>
+                </div>
+                <div id="resultContainer" class="mt-4 p-4 bg-[#F8F9FA] rounded-lg border border-gray-200 min-h-[100px]">
+                    <div id="resultContent" class="text-gray-500">Twój plan pojawi się tutaj...</div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <section id="prawa" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-12">4 Prawa Zmiany Zachowania</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full min-w-max text-left bg-white shadow-lg rounded-lg">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="p-4 font-bold text-lg text-[#06D6A0]">Aby Wprowadzić Dobry Nawyk</th>
+                            <th class="p-4 font-bold text-lg text-[#FF6B6B]">Aby Złamać Zły Nawyk</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b">
+                            <td class="p-4">1. Uczyń to **Oczywistym**</td>
+                            <td class="p-4">1. Uczyń to **Niewidocznym**</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-4">2. Uczyń to **Atrakcyjnym**</td>
+                            <td class="p-4">2. Uczyń to **Nieatrakcyjnym**</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-4">3. Uczyń to **Łatwym**</td>
+                            <td class="p-4">3. Uczyń to **Trudnym**</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">4. Uczyń to **Satysfakcjonującym**</td>
+                            <td class="p-4">4. Uczyń to **Niesatysfakcjonującym**</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <footer class="text-center mt-16 pt-8 border-t">
+            <p class="text-lg font-bold">Zacznij od jednej, małej zmiany. Już dziś.</p>
+            <p class="text-gray-500 mt-2">Infografika oparta na koncepcjach z "Atomowych nawyków" Jamesa Cleara.</p>
+        </footer>
+
+
+    </div>
+
+
+    <script>
+        const energeticPlayful = {
+            red: '#FF6B6B',
+            yellow: '#FFD166',
+            green: '#06D6A0',
+            blue: '#118AB2',
+            dark: '#073B4C',
+            lightGray: '#F8F9FA'
+        };
+
+
+        function wrapLabels(label, maxWidth) {
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+
+
+            words.forEach(word => {
+                if ((currentLine + word).length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+        
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: energeticPlayful.dark,
+                        font: {
+                            family: "'Lato', sans-serif"
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    backgroundColor: energeticPlayful.dark,
+                    titleFont: { family: "'Lato', sans-serif", weight: 'bold' },
+                    bodyFont: { family: "'Lato', sans-serif" },
+                }
+            },
+            scales: {
+                y: {
+                    ticks: { color: energeticPlayful.dark },
+                    grid: { color: '#e0e0e0' }
+                },
+                x: {
+                    ticks: { color: energeticPlayful.dark },
+                    grid: { display: false }
+                }
+            }
+        };
+
+
+        const procrastinationCtx = document.getElementById('procrastinationChart').getContext('2d');
+        new Chart(procrastinationCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Lęk przed porażką', 'Perfekcjonizm', 'Przeciążenie', 'Brak motywacji'],
+                datasets: [{
+                    label: 'Przyczyny prokrastynacji',
+                    data: [35, 30, 20, 15],
+                    backgroundColor: [
+                        energeticPlayful.red,
+                        energeticPlayful.yellow,
+                        energeticPlayful.blue,
+                        '#BDBDBD'
+                    ],
+                    borderColor: energeticPlayful.lightGray,
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                scales: { y: { display: false }, x: { display: false } }
+            }
+        });
+
+
+        const organizationCtx = document.getElementById('organizationChart').getContext('2d');
+        new Chart(organizationCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Planowanie Wieczorem', wrapLabels('Technika Pomodoro', 16), wrapLabels('Macierz Eisenhowera', 16)],
+                datasets: [{
+                    label: 'Postrzegana Skuteczność (%)',
+                    data: [85, 75, 60],
+                    backgroundColor: [energeticPlayful.yellow, energeticPlayful.blue, energeticPlayful.green],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { color: energeticPlayful.dark },
+                        grid: { color: '#e0e0e0' }
+                    },
+                    y: {
+                        ticks: { color: energeticPlayful.dark },
+                        grid: { display: false }
+                    }
+                },
+                 plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        },
+                        backgroundColor: energeticPlayful.dark,
+                        titleFont: { family: "'Lato', sans-serif", weight: 'bold' },
+                        bodyFont: { family: "'Lato', sans-serif" },
+                    }
+                }
+            }
+        });
+
+
+        const wellbeingCtx = document.getElementById('wellbeingChart').getContext('2d');
+        new Chart(wellbeingCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Sen', 'Dieta', 'Ruch', 'Relaks', 'Relacje'],
+                datasets: [{
+                    label: 'Aktualny Poziom Dobrostanu',
+                    data: [7, 6, 5, 8, 7],
+                    fill: true,
+                    backgroundColor: 'rgba(6, 214, 160, 0.2)',
+                    borderColor: energeticPlayful.green,
+                    pointBackgroundColor: energeticPlayful.green,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: energeticPlayful.green
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                 scales: {
+                    r: {
+                        angleLines: { color: '#e0e0e0' },
+                        grid: { color: '#e0e0e0' },
+                        pointLabels: {
+                            color: energeticPlayful.dark,
+                            font: { size: 14, family: "'Lato', sans-serif" }
+                        },
+                        ticks: {
+                            backdropColor: energeticPlayful.lightGray,
+                            color: energeticPlayful.dark
+                        },
+                        min: 0,
+                        max: 10
+                    }
+                }
+            }
+        });
+
+
+        const generatePlan = async () => {
+            const habitInput = document.getElementById('habitInput').value;
+            const resultContainer = document.getElementById('resultContainer');
+            const resultContent = document.getElementById('resultContent');
+
+
+            if (!habitInput) {
+                resultContent.innerHTML = 'Proszę wpisać nawyk do analizy.';
+                console.error('Błąd: Brak nawyku.');
+                return;
+            }
+
+
+            resultContent.innerHTML = '<div class="text-center"><span class="animate-pulse">Generuję plan...</span></div>';
+
+
+            const prompt = `Jesteś ekspertem od nawyków, inspirowanym książką "Atomowe Nawyki".
+            Na podstawie podanego nawyku, stwórz krótki, konkretny plan działania, stosując cztery prawa zmiany zachowania.
+            Sformatuj odpowiedź jako czysty tekst. Użyj numerowanych nagłówków dla każdego z czterech praw. Pod każdym nagłówkiem umieść wskazówki jako listę punktowaną za pomocą gwiazdki (*). Oddziel każdy nagłówek od następnego pustą linią, a każdą listę od nagłówka również.
+
+
+            Przykład formatowania dla nawyku "pić więcej wody":
+            1. Uczyń to oczywistym
+            * Trzymaj butelkę wody zawsze przy sobie.
+            * Postaw szklankę wody obok łóżka.
+
+
+            2. Uczyń to atrakcyjnym
+            * Dodaj do wody ulubione owoce lub zioła, żeby była smaczniejsza.
+            * Kup butelkę, która podoba Ci się wizualnie.
+            
+            Bez dodatkowych wstępów i wstępnych tekstów, po prostu gotowy tekst do formatowania.
+            
+            Nawyk: ${habitInput}`;
+            
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = ''; // Leave this as-is; the runtime will provide it
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+
+            let retries = 0;
+            const maxRetries = 5;
+            const delay = 1000;
+
+
+            const fetchData = async () => {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+
+                    if (response.status === 429 && retries < maxRetries) {
+                        retries++;
+                        const retryDelay = delay * Math.pow(2, retries - 1);
+                        await new Promise(res => setTimeout(res, retryDelay));
+                        return fetchData();
+                    }
+
+
+                    if (!response.ok) {
+                        console.error('Błąd HTTP! Status:', response.status);
+                        const errorBody = await response.text();
+                        console.error('Treść błędu:', errorBody);
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const rawText = result.candidates[0].content.parts[0].text;
+                        const formattedHtml = formatPlanToHtml(rawText);
+                        resultContent.innerHTML = formattedHtml;
+                    } else {
+                        resultContent.innerHTML = 'Nie udało się wygenerować planu. Spróbuj ponownie.';
+                    }
+                } catch (error) {
+                    console.error('Błąd podczas pobierania danych:', error);
+                    resultContent.innerHTML = 'Wystąpił błąd. Spróbuj ponownie za chwilę.';
+                }
+            };
+
+
+            const formatPlanToHtml = (planText) => {
+                let htmlOutput = '';
+                const lines = planText.split('\n');
+
+
+                let currentList = false;
+                lines.forEach(line => {
+                    if (line.trim().startsWith('*')) {
+                        if (!currentList) {
+                            htmlOutput += '<ul>';
+                            currentList = true;
+                        }
+                        htmlOutput += `<li class="ml-4 mb-1 list-disc">${line.trim().substring(1).trim()}</li>`;
+                    } else {
+                        if (currentList) {
+                            htmlOutput += '</ul>';
+                            currentList = false;
+                        }
+                        if (line.trim().match(/^\d+\./)) {
+                             htmlOutput += `<h4 class="font-bold text-lg mt-4 mb-2">${line.trim()}</h4>`;
+                        } else if (line.trim() !== '') {
+                            htmlOutput += `<p class="mb-2">${line.trim()}</p>`;
+                        }
+                    }
+                });
+                if (currentList) {
+                    htmlOutput += '</ul>';
+                }
+                return htmlOutput;
+            };
+
+
+            fetchData();
+        };
+
+
+        document.getElementById('generateButton').addEventListener('click', generatePlan);
+    </script>
+</body>
+</html>
