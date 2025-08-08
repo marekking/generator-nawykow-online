@@ -399,75 +399,121 @@
                 }
             }
         });
-        
-        // Zaktualizowany kod do obsługi lokalnego generowania planu
+
         const generatePlan = async () => {
             const habitInput = document.getElementById('habitInput').value;
+            const resultContainer = document.getElementById('resultContainer');
             const resultContent = document.getElementById('resultContent');
 
             if (!habitInput) {
                 resultContent.innerHTML = 'Proszę wpisać nawyk do analizy.';
+                console.error('Błąd: Brak nawyku.');
                 return;
             }
 
             resultContent.innerHTML = '<div class="text-center"><span class="animate-pulse">Generuję plan...</span></div>';
             
-            // Symulacja odpowiedzi z Gemini
-            const plan = `1. Uczyń to oczywistym
-- Ustal konkretną porę dnia na czytanie (np. 15 minut przed snem).
-- Zawsze miej książkę w widocznym miejscu na stoliku nocnym lub w torbie.
+            const prompt = `Jesteś ekspertem od nawyków, inspirowanym książką "Atomowe Nawyki".
+            Na podstawie podanego nawyku, stwórz krótki, konkretny plan działania, stosując cztery prawa zmiany zachowania.
+            Sformatuj odpowiedź jako czysty tekst. Użyj numerowanych nagłówków dla każdego z czterech praw. Pod każdym nagłówkiem umieść wskazówki jako listę punktowaną za pomocą myślnika (-). Oddziel każdy nagłówek od następnego pustą linią.
 
-2. Uczyń to atrakcyjnym
-- Połącz czytanie z czymś przyjemnym, np. filiżanką herbaty.
-- Dołącz do klubu czytelniczego, by mieć motywację społeczną.
+            Przykład formatowania dla nawyku "pić więcej wody":
+            1. Uczyń to oczywistym
+            - Trzymaj butelkę wody zawsze przy sobie.
+            - Postaw szklankę wody obok łóżka.
 
-3. Uczyń to łatwym
-- Zacznij od 5-10 minut czytania dziennie, a dopiero potem stopniowo zwiększaj czas.
-- Zawsze miej pod ręką łatwo dostępną książkę, która Cię interesuje.
-
-4. Uczyń to satysfakcjonującym
-- Po każdym przeczytanym rozdziale zaznacz to w kalendarzu.
-- Nagradzaj się, np. nową książką po skończeniu poprzedniej.`;
-
-            // Wstawienie symulowanej odpowiedzi do kontenera
-            setTimeout(() => {
-                const formattedHtml = formatPlanToHtml(plan);
-                resultContent.innerHTML = formattedHtml;
-            }, 1500); 
-        };
-
-        const formatPlanToHtml = (planText) => {
-            let htmlOutput = '';
-            const lines = planText.split('\n');
+            2. Uczyń to atrakcyjnym
+            - Dodaj do wody ulubione owoce lub zioła, żeby była smaczniejsza.
+            - Kup butelkę, która podoba Ci się wizualnie.
             
-            let currentList = false;
-            lines.forEach(line => {
-                const trimmedLine = line.trim();
+            Bez dodatkowych wstępów i wstępnych tekstów, po prostu gotowy tekst do formatowania.
+            
+            Nawyk: ${habitInput}`;
+            
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = ""
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
-                if (trimmedLine.match(/^\d+\./)) {
-                    if (currentList) {
-                        htmlOutput += '</ul>';
-                        currentList = false;
+            let retries = 0;
+            const maxRetries = 5;
+            const delay = 1000;
+
+            const fetchData = async () => {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.status === 429 && retries < maxRetries) {
+                        retries++;
+                        const retryDelay = delay * Math.pow(2, retries - 1);
+                        await new Promise(res => setTimeout(res, retryDelay));
+                        return fetchData();
                     }
-                    htmlOutput += `<h4 class="font-bold text-lg mt-4 mb-2">${trimmedLine}</h4>`;
-                } else if (trimmedLine.startsWith('-')) {
-                    if (!currentList) {
-                        htmlOutput += '<ul>';
-                        currentList = true;
+
+                    if (!response.ok) {
+                        console.error('Błąd HTTP! Status:', response.status);
+                        const errorBody = await response.text();
+                        console.error('Treść błędu:', errorBody);
+                        throw new Error(`HTTP error! status: ${response.status}`);
                     }
-                    htmlOutput += `<li class="ml-4 list-disc">${trimmedLine.substring(1).trim()}</li>`;
-                } else if (trimmedLine === '') {
-                    if (currentList) {
-                        htmlOutput += '</ul>';
-                        currentList = false;
+
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const rawText = result.candidates[0].content.parts[0].text;
+                        const formattedHtml = formatPlanToHtml(rawText);
+                        resultContent.innerHTML = formattedHtml;
+                    } else {
+                        resultContent.innerHTML = 'Nie udało się wygenerować planu. Spróbuj ponownie.';
                     }
-                    htmlOutput += '<p></p>';
+                } catch (error) {
+                    console.error('Błąd podczas pobierania danych:', error);
+                    resultContent.innerHTML = 'Wystąpił błąd. Spróbuj ponownie za chwilę.';
                 }
-            });
-            if (currentList) {
-                htmlOutput += '</ul>';
-            }
-            return htmlOutput;
+            };
+
+            const formatPlanToHtml = (planText) => {
+                let htmlOutput = '';
+                const lines = planText.split('\n');
+                
+                let currentList = false;
+                lines.forEach(line => {
+                    const trimmedLine = line.trim();
+
+                    if (trimmedLine.match(/^\d+\./)) {
+                        if (currentList) {
+                            htmlOutput += '</ul>';
+                            currentList = false;
+                        }
+                        htmlOutput += `<h4 class="font-bold text-lg mt-4 mb-2">${trimmedLine}</h4>`;
+                    } else if (trimmedLine.startsWith('-')) {
+                        if (!currentList) {
+                            htmlOutput += '<ul>';
+                            currentList = true;
+                        }
+                        htmlOutput += `<li class="ml-4 list-disc">${trimmedLine.substring(1).trim()}</li>`;
+                    } else if (trimmedLine === '') {
+                        if (currentList) {
+                            htmlOutput += '</ul>';
+                            currentList = false;
+                        }
+                        htmlOutput += '<p></p>';
+                    }
+                });
+                if (currentList) {
+                    htmlOutput += '</ul>';
+                }
+                return htmlOutput;
+            };
+
+            fetchData();
         };
 
         document.getElementById('generateButton').addEventListener('click', generatePlan);
